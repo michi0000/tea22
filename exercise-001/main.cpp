@@ -4,6 +4,14 @@
 #include "CLI/CLI.hpp"
 #include "config.h"
 
+int foo;
+
+void doSomething(int value) 
+{
+    value = value+1;
+    fmt::print("doSomething, value {}\n", value);
+}
+
 auto main(int argc, char **argv) -> int
 {
     /**
@@ -28,7 +36,11 @@ auto main(int argc, char **argv) -> int
      */
     fmt::print("Hello, {}!\n", app.get_name());
 
-    /* INSERT YOUR CODE HERE */
+    doSomething(42);
+    int bar = 42;
+    doSomething(bar);
+    fmt::print("The Value of bar is: {}", bar);
+    
 
     return 0; /* exit gracefully*/
 }
